@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Scoreboard</title>
+<link rel="stylesheet" href="main.css">
+ <link rel="icon" type="image/png" href="logo2.png">
+</head>
+<body>
+<div id="intro-screen" class="card">
+    <div class="intro-box">
+      <h1>Congratulations on making it to the second round!</h1>
+      <button id="start-btn">Start</button>
+    </div>
+  </div>
+
+
+
+ <div id="scoreboard-screen" style="display: none;">
+    <div class="countdown-container">
+      <div id="countdown-bar"></div>
+      <span id="countdown-text"></span>
+    </div>
+    <div class="score-container" id="score-container"></div>
+  </div>
+
+
+<script>
+const firebaseUrl = "https://score-board-bd029-default-rtdb.asia-southeast1.firebasedatabase.app/score.json";
+
+
+async function loadScores() {
+  try {
+    const res = await fetch(firebaseUrl);
+    const data = await res.json();
+
+    const container = document.getElementById("score-container");
+    container.innerHTML = "";
+
+    const teams = Object.values(data);
+
+    teams.forEach((team, index) => {
+      const card = document.createElement("div");
+      card.className = "score-card";
+
+      card.innerHTML = `
+        
+        <div class="team-name">${team.team}</div>
+        
+        <div class="score">${team.score}</div>
+      `;
+      container.appendChild(card);
+    });
+  } catch (error) {
+    console.error("Error loading scores:", error);
+  }
+}
+
+
+loadScores();
+setInterval(loadScores, 3000);
+document.getElementById("start-btn").addEventListener("click", function() {
+  document.getElementById("intro-screen").style.display = "none";
+  document.getElementById("scoreboard-screen").style.display = "block";
+  startCountdown(1.5 * 60 * 60); 
+  document.body.classList.add('active');
+   
+  
+});
+
+
+function startCountdown(seconds) {
+  const countdownBar = document.getElementById("countdown-bar");
+  const countdownText = document.getElementById("countdown-text");
+  const totalSeconds = seconds;
+
+  const timer = setInterval(() => {
+    seconds--;
+
+    let hrs = Math.floor(seconds / 3600);
+    let mins = Math.floor((seconds % 3600) / 60);
+    let secs = seconds % 60;
+
+    countdownText.textContent = `${hrs.toString().padStart(2,'0')}:${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+    countdownBar.style.width = `${(seconds / totalSeconds) * 100}%`;
+
+    if (seconds <= 0) {
+      clearInterval(timer);
+      countdownText.textContent = "Time's up!";
+    }
+  }, 1000);
+}
+</script>
+</body>
+</html>

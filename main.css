@@ -1,0 +1,240 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #53354a, #903749, #e94560, #ff6f61);
+  background-size: 1000% 1000%;
+  animation: gradientBG 18s ease infinite;
+  color: white;
+  align-items: center;
+}
+
+
+
+
+.score-container {
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  gap: 20px;
+  justify-content: center;
+  padding: 40px;
+}
+
+.score-card {
+
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 215, 0, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease;
+}
+
+.score-card:hover {
+  transform: translateY(-5px) scale(1.03);
+}
+
+.rank {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #FFD700;
+  margin-bottom: 10px;
+}
+
+.team-name {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #00E5FF;
+}
+
+.school {
+  font-size: 1em;
+  color: #DDD;
+  margin-bottom: 10px;
+}
+
+.score {
+  font-size: 2em;
+  font-weight: bold;
+  color: #FFEB3B;
+}
+
+
+.score-container > :nth-child(n+9) {
+  grid-column: span 2;
+  justify-self: right;
+  width: 259px;
+}
+.score-container > :nth-child(n+10) {
+  grid-column: span 2;
+  justify-self: left;
+  width: 259px;
+}
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+:root {
+  --clr-1: #052b2f;
+  --clr-2: #073438;
+  --clr-3: #0e4b50;
+  --clr-4: #2d8f85;
+  --clr-5: #637c54;
+}
+
+body {
+  background: var(--clr-2);
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.card {
+  text-align: center;
+  height: 80vh;
+  aspect-ratio: 1.5 / 1;
+  background: var(--clr-1);
+  border-radius: 0.5rem;
+  align-items: center;
+  position: relative;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -0.5rem;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    var(--clr-3),
+    var(--clr-4),
+    var(--clr-5),
+    var(--clr-4),
+    var(--clr-3)
+  );
+  border-radius: inherit;
+  animation: rotation 20s linear infinite;
+}
+
+.card::after {
+  filter: blur(3.5rem);
+}
+
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+
+
+.intro-box {
+  margin-top: 20vh ;
+
+  
+  text-align: center;
+  color: rgba(255, 217, 0, 0.896);
+  background: linear-gradient(to bottom, #d4af37, #a68841, #5a4917, #836a28, #e9d07c);
+  -webkit-background-clip: text; 
+  background-clip: text;
+  color: transparent; 
+}
+.intro-box h1 {
+  margin-top: 20vh ;
+  
+  
+  text-align: center;
+  color: rgba(255, 217, 0, 0.896);
+  background: linear-gradient(to bottom, #C18700, #D8A309, #EABF14, #EAD355, #F7F18B);
+  -webkit-background-clip: text; 
+  background-clip: text;
+  color: transparent; 
+}
+
+
+#start-btn {
+  
+  margin-top: 20vh ;
+  padding: 15px 30px;
+  background: linear-gradient(90deg, gold, orange);
+  border: none;
+  color: black;
+  font-size: 1.5em;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 20px gold;
+  animation: pulse 1.5s infinite;background: gold;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+  background: linear-gradient(to bottom, #C18700, #D8A309, #EABF14, #EAD355, #F7F18B);
+  -webkit-background-clip: text; 
+  background-clip: text;
+  color: transparent; 
+}
+
+#start-btn:hover {
+  transform: translateY(-5px) scale(1.03);
+}
+
+/* Countdown Bar */
+.countdown-container {
+  width: 100%;
+  height: 100px; 
+  background: rgba(255,255,255,0.1);
+  border: 2px solid gold;
+  border-radius: 10px;
+  align-content: center;
+  position: relative;
+  overflow: hidden;
+  align-items: top;
+
+}
+
+#countdown-bar {
+  height: 100%;
+  background: gold;
+  width: 100%;
+  transition: width 1s linear;
+  align-items: center;
+  background: linear-gradient(to bottom, #C18700, #D8A309, #EABF14, #EAD355, #F7F18B);
+  
+ 
+}
+
+#countdown-text {
+  font-size: 50px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  line-height: 100px;
+  font-weight: bold;
+  background: #ffffff;
+  -webkit-background-clip: text; 
+  background-clip: text;
+  color: transparent; 
+}@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.active {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #0a1470, #08897e, #07119a, #9affaa);
+  background-size: 1000% 1000%;
+  animation: gradientBG 12s ease infinite;
+  color: white;
+  align-items: center;
+}
+
+
