@@ -220,7 +220,7 @@ body {
   top: 0;
   line-height: 100px;
   font-weight: bold;
-  background: #ffffff;
+  background: #000000;
   -webkit-background-clip: text; 
   background-clip: text;
   color: transparent; 
@@ -238,6 +238,7 @@ body {
   color: white;
   align-items: center;
 }
+
 
 
 
