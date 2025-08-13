@@ -64,7 +64,7 @@ document.getElementById("start-btn").addEventListener("click", function() {
   document.getElementById("scoreboard-screen").style.display = "block";
   startCountdown(1.5 * 60 * 60); 
   document.body.classList.add('active');
-   
+   document.body.style.cursor='none';
   
 });
 
@@ -93,3 +93,4 @@ function startCountdown(seconds) {
 </script>
 </body>
 </html>
+
