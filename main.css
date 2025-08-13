@@ -93,7 +93,7 @@ body {
 
 .card {
   text-align: center;
-  height: 80vh;
+  height: 90vh;
   aspect-ratio: 1.5 / 1;
   background: var(--clr-1);
   border-radius: 0.5rem;
@@ -161,6 +161,7 @@ body {
   
   margin-top: 20vh ;
   padding: 15px 30px;
+
   background: linear-gradient(90deg, gold, orange);
   border: none;
   color: black;
@@ -170,7 +171,7 @@ body {
   box-shadow: 0 0 20px gold;
   animation: pulse 1.5s infinite;background: gold;
   border: none;
-  padding: 15px 30px;
+  padding: 40px 80px;
   font-size: 1.2em;
   cursor: pointer;
   border-radius: 8px;
@@ -179,6 +180,7 @@ body {
   -webkit-background-clip: text; 
   background-clip: text;
   color: transparent; 
+  font-size: 40px;
 }
 
 #start-btn:hover {
@@ -236,5 +238,8 @@ body {
   color: white;
   align-items: center;
 }
+
+
+
 
 
