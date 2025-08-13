@@ -30,9 +30,7 @@ body {
   transition: transform 0.3s ease;
 }
 
-.score-card:hover {
-  transform: translateY(-5px) scale(1.03);
-}
+
 
 .rank {
   font-size: 1.2em;
@@ -154,6 +152,7 @@ body {
   -webkit-background-clip: text; 
   background-clip: text;
   color: transparent; 
+  
 }
 
 
@@ -238,8 +237,6 @@ body {
   color: white;
   align-items: center;
 }
-
-
 
 
 
