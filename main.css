@@ -1,6 +1,15 @@
+@font-face {
+      font-family: 'StarTrebek';
+      src: url('./StarTrebek-7BEmw.woff2') format('woff2'),
+           url('./StarTrebek-7BEmw.woff') format('woff'),
+           url('./StarTrebek-7BEmw.ttf') format('truetype');
+      font-weight: 40;
+      font-style: normal;
+      font-display: swap;
+    }
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  
   background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #53354a, #903749, #e94560, #ff6f61);
   background-size: 1000% 1000%;
   animation: gradientBG 18s ease infinite;
@@ -21,7 +30,7 @@ body {
 
 .score-card {
 
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.5);
   border: 2px solid rgba(255, 215, 0, 0.8);
   border-radius: 15px;
   padding: 20px;
@@ -42,7 +51,7 @@ body {
 .team-name {
   font-size: 1.4em;
   font-weight: bold;
-  color: #00E5FF;
+  color: #000000;
 }
 
 .school {
@@ -54,7 +63,7 @@ body {
 .score {
   font-size: 2em;
   font-weight: bold;
-  color: #FFEB3B;
+  color: #000000;
 }
 
 
@@ -92,7 +101,7 @@ body {
 .card {
   text-align: center;
   height: 90vh;
-  aspect-ratio: 1.5 / 1;
+  aspect-ratio: 1.7 / 1;
   background: var(--clr-1);
   border-radius: 0.5rem;
   align-items: center;
@@ -134,7 +143,7 @@ body {
 .intro-box {
   margin-top: 20vh ;
 
-  
+   font-family: 'StarTrebek', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   text-align: center;
   color: rgba(255, 217, 0, 0.896);
   background: linear-gradient(to bottom, #d4af37, #a68841, #5a4917, #836a28, #e9d07c);
@@ -144,8 +153,9 @@ body {
 }
 .intro-box h1 {
   margin-top: 20vh ;
-  
-  
+   font-family: 'StarTrebek', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 48px;
+  letter-spacing: 2px;
   text-align: center;
   color: rgba(255, 217, 0, 0.896);
   background: linear-gradient(to bottom, #C18700, #D8A309, #EABF14, #EAD355, #F7F18B);
@@ -179,14 +189,16 @@ body {
   -webkit-background-clip: text; 
   background-clip: text;
   color: transparent; 
-  font-size: 40px;
+  font-family: 'StarTrebek', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 48px;
+  letter-spacing: 2px;
 }
 
 #start-btn:hover {
   transform: translateY(-5px) scale(1.03);
 }
 
-/* Countdown Bar */
+
 .countdown-container {
   width: 100%;
   height: 100px; 
@@ -197,6 +209,7 @@ body {
   position: relative;
   overflow: hidden;
   align-items: top;
+  margin-bottom: 20px;
 
 }
 
@@ -237,7 +250,77 @@ body {
   color: white;
   align-items: center;
 }
+.ice {
+  --ice-tint: rgba(150, 220, 255, 0.35);
+  --ice-glow: rgba(220, 250, 255, 0.7);
 
+  background:
+    radial-gradient(150% 150% at 30% 30%, rgba(255,255,255,0.35), rgba(200,240,255,0.15) 60%, rgba(180,220,255,0.05));
+  box-shadow:
+    inset 0 0 40px var(--ice-glow),
+    inset 0 0 10px rgba(255,255,255,0.6);
+  color: #e9fdff;
+  font-weight: bold;
+  text-shadow:
+    0 1px 2px rgba(255,255,255,0.8),
+    0 0 8px rgba(150,220,255,0.8),
+    0 0 15px rgba(180,240,255,0.6);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  overflow: hidden;
+  position: relative;
+}
 
+/* Frost texture only */
+.ice::before {
+  content: "";
+  position: absolute; inset: 0;
+  mix-blend-mode: overlay;
+  filter: blur(0.3px);
+  pointer-events: none;
 
+ 
+}
 
+/* Sparkle shimmer after freeze */
+.ice::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(120deg,
+    rgba(255,255,255,0) 25%,
+    rgba(255,255,255,0.4) 50%,
+    rgba(255,255,255,0) 75%);
+  transform: translateX(-100%);
+  opacity: 0;
+  animation:
+    ice-sweep 4s ease-in-out infinite 1.8s,
+    fade-in 0.3s linear 1.8s forwards;
+  pointer-events: none;
+}
+
+@keyframes freeze-grow {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    transform: scaleY(0.3);
+  }
+  60% {
+    transform: scaleY(0.9);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes ice-sweep {
+  0%, 60% { transform: translateX(-150%); }
+  80%     { transform: translateX(20%); }
+  100%    { transform: translateX(150%); }
+}
+
+@keyframes fade-in {
+  to { opacity: 1; }
+}
