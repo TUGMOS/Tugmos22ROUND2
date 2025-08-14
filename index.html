@@ -65,7 +65,7 @@ setInterval(loadScores, 3000);
 document.getElementById("start-btn").addEventListener("click", function() {
   document.getElementById("intro-screen").style.display = "none";
   document.getElementById("scoreboard-screen").style.display = "block";
-  startCountdown(901); 
+  startCountdown(1.5*60*60); 
   document.body.classList.add('active');
   document.body.style.cursor='none';
    
@@ -101,3 +101,4 @@ function startCountdown(seconds) {
 </script>
 </body>
 </html>
+
