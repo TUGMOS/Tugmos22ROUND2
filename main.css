@@ -22,7 +22,7 @@ body {
 
 .score-container {
   display: grid;
-  grid-template-columns: repeat(4, 300px);
+  grid-template-columns: repeat(3, 300px);
   gap: 20px;
   justify-content: center;
   padding: 40px;
@@ -67,16 +67,16 @@ body {
 }
 
 
-.score-container > :nth-child(n+9) {
-  grid-column: span 2;
-  justify-self: right;
-  width: 259px;
-}
+
+
 .score-container > :nth-child(n+10) {
-  grid-column: span 2;
-  justify-self: left;
+  grid-column: span 3;
+  justify-self: center;
   width: 259px;
 }
+
+
+
 @property --gradient-angle {
   syntax: "<angle>";
   initial-value: 0deg;
